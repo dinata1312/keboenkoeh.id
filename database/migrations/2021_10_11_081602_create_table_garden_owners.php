@@ -19,12 +19,26 @@ class CreateTableGardenOwners extends Migration
             $table->enum('type',['kerjasama','sendiri']);
             $table->integer('large')->unsigned();
             $table->text('location');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
             
             // $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('partner_id')->references('id')->on('partners')->onUpdate('cascade')->onDelete('cascade');
+            
         });
+        
+        // Insert some stuff
+        DB::table('garden_owners')->insert(
+            array(
+                'partner_id'=> 1,
+                'type'      => 'kerjasama',
+                'large'     => 150,
+                'location'  => 'Kebun Satu',
+                'created_at'=> DB::raw('CURRENT_TIMESTAMP'),
+                'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
+            )
+        );
     }
 
     /**

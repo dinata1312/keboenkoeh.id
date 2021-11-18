@@ -49,7 +49,7 @@ class PartnerController extends Controller
         
         $imageName = 'images/'.time().'.'.$image->extension();
 
-        Partner::create([
+        $insertData = Partner::create([
                     'name'          => $name,
                     'email'         => $email,
                     'middleman'     => $middleman,
@@ -58,9 +58,16 @@ class PartnerController extends Controller
                     'image'         => $imageName,
                 ]);
 
-        $image->move(public_path('images'), $imageName);
-
-        return view('partner')->with('success', 'Data berhasil ditambahkan !');
+        
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
+        }
+        return redirect('owner/partner')->with('success', 'Data berhasil ditambahkan !');
         
     }
 
@@ -111,7 +118,7 @@ class PartnerController extends Controller
         
         $imageName = 'images/'.time().'.'.$image->extension();
 
-        Partner::where('id', $id)
+        $insertData = Partner::where('id', $id)
                       ->update([
                             'name'          => $name,
                             'email'         => $email,
@@ -121,9 +128,16 @@ class PartnerController extends Controller
                             'image'         => $imageName,
                       ]);
 
-        $image->move(public_path('images'), $imageName);
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
+        }
 
-        return view('partner')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('owner/partner')->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**

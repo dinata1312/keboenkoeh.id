@@ -21,7 +21,8 @@ class CreatePartnersTable extends Migration
             $table->string('phone_number');
             $table->text('address');
             $table->string('image');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
         
         // Insert some stuff

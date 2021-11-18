@@ -32,8 +32,8 @@
         </div>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
             <label class="block text-md text-gray-600" for="type">Jumlah</label>
-            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="pengeluaran">&nbsp; Pengeluaran &nbsp;
-            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="pemasukan">&nbsp; Pemasukan
+            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="expense">&nbsp; Pengeluaran &nbsp;
+            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="income">&nbsp; Pemasukan
         </div>
         <br>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">

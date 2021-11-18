@@ -15,7 +15,7 @@ class PlantType extends Model
      * @var string[]
      */
     protected $fillable = [
-        'garden_id',
+        // 'garden_id',
         'name',
         'description',
         'image',
@@ -30,8 +30,12 @@ class PlantType extends Model
         'id',
     ];
 
-    public function gardenOwner(){ // Calling data for garden owner
-        return $this->hasMany(gardenOwner::class, 'garden_id', 'id');
+    // public function gardenOwner(){ // Calling data for garden owner
+    //     return $this->hasMany(gardenOwner::class, 'garden_id', 'id');
+    // }
+
+    public function PlantType(){ // Calling data for garden owner
+        return $this->hasMany(GardenPlant::class, 'plant_id', 'id');
     }
 
 }

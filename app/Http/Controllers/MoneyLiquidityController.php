@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\MoneyLiquidity;
 use App\Models\Category;
@@ -69,7 +70,7 @@ class MoneyLiquidityController extends Controller
         
         $imageName = 'images/'.time().'.'.$image->extension();
 
-        MoneyLiquidity::where('id', $id)
+        $insertData = MoneyLiquidity::where('id', $id)
                       ->update([
                             'name'          => $name,
                             'category_id'   => $category_id,
@@ -81,9 +82,16 @@ class MoneyLiquidityController extends Controller
                             'image'         => $imageName,
                       ]);
 
-        $image->move(public_path('images'), $imageName);
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf! Data gagal diperbarui');
+        }
 
-        return view('keuangan')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('owner/keuangan')->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
@@ -121,7 +129,7 @@ class MoneyLiquidityController extends Controller
         
         $imageName = 'images/'.time().'.'.$image->extension();
 
-        MoneyLiquidity::create([
+        $insertData = MoneyLiquidity::create([
             'name'          => $name,
             'category_id'   => $category_id,
             'partner_id'    => $partner_id,
@@ -132,8 +140,13 @@ class MoneyLiquidityController extends Controller
             'image'         => $imageName,
         ]);
         
-        $image->move(public_path('images'), $imageName);
-
-        return view('keuangan')->with('success', 'Data berhasil ditambahkan !');
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'add-success');
+        }else{
+            Session::put('alert', 'add-failure');
+        }
+        
+        return redirect('owner/keuangan')->with('success', 'Data berhasil ditambahkan !');
     }
 }

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form class="p-10 bg-white rounded shadow-xl"  action="{{route('edit-partner') }}" method="post" enctype="multipart/form-data">
+    <form class="p-10 bg-white rounded shadow-xl"  action="{{ url('edit-partner') }}" method="post" enctype="multipart/form-data">
         <p class="text-3xl text-gray-800 font-medium pb-4">
             Edit Mitra #{{$data->id}}
         </p>
@@ -26,7 +26,10 @@
         </div>
         <br>
         <div class="mt-2">
-            <label class="block text-md text-gray-600" for="image">Gambar</label>
+            <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
+                <label class="block text-md text-gray-600" for="image">Gambar</label>
+                <input type="file" name="image" class="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded">
+            </div>
             <img src="{{ asset($data->image) }}" class="max-h-56">
         </div>
         <div class="mt-6">

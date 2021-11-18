@@ -29,7 +29,7 @@
                             <td class="py-4 px-6 border-b border-grey-light">{{ $data->phone_number }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">{{ $data->middleman }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">
-                                <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="/owner/detail-partner/{{$data->id}}">Detail</a>
+                                <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="{{ url('owner/detail-partner/'. $data->id) }}">Detail</a>
                             </td>
                         </tr>
                     @endforeach

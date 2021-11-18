@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
                 'name'      => 'Atta Gledek',
                 'email'     => 'attacutes@gmail.com',
                 'role_id'   => 1,
-                'password'  => encrypt('12345678'),
+                'password'  => Hash::make('12345678'),
                 'created_at'=> DB::raw('CURRENT_TIMESTAMP'),
                 'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
             )
@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration
                 'name'      => 'Michael Handoko',
                 'email'     => 'handokoiscute@gmail.com',
                 'role_id'   => 2,
-                'password'  => encrypt('12345678'),
+                'password'  => Hash::make('12345678'),
                 'created_at'=> DB::raw('CURRENT_TIMESTAMP'),
                 'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
             ),

@@ -25,13 +25,8 @@
         </div>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
             <label class="block text-md text-gray-600" for="type">Jenis</label>
-            @php
-                if($data->type == 'expense'){
-                    echo '<input class="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded" id="amount" name="amount" type="text" required="" value="Pengeluaran">';
-                }else{
-                    echo '<input class="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded" id="amount" name="amount" type="text" required="" value="Pemasukan">';
-                }
-            @endphp
+            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="expense" @if($data->type == "expense") checked @endif>&nbsp; Pengeluaran &nbsp;
+            <input class="px-2 py-2" id="type" name="type" type="radio" required="" value="income" @if($data->type == "income") checked @endif>&nbsp; Pemasukan
         </div>
         <br>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">

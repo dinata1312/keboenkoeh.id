@@ -55,5 +55,9 @@ class User extends Authenticatable
     public function role(){ // Calling data for garden owner
         return $this->hasMany(Role::class, 'role_id', 'id');
     }
+
+    public function information(){ // Calling data for garden owner
+        return $this->hasMany(Information::class, 'user_id', 'id');
+    }
     
 }
