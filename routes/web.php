@@ -38,6 +38,25 @@ Route::post('owner/edit-keuangan/{id}', '\App\Http\Controllers\MoneyLiquidityCon
 Route::get('owner/add-keuangan', '\App\Http\Controllers\MoneyLiquidityController@create')->name('add-keuangan')->middleware(['auth']);
 Route::post('owner/add-keuangan', '\App\Http\Controllers\MoneyLiquidityController@store')->name('store-keuangan')->middleware(['auth']);
 
+Route::get('owner/petani', '\App\Http\Controllers\FarmerController@index')->name('petani')->middleware(['auth']);
+Route::get('owner/add-farmer', '\App\Http\Controllers\FarmerController@create')->name('add-farmer')->middleware(['auth']);
+Route::post('owner/add-farmer', '\App\Http\Controllers\FarmerController@store')->name('store-farmer')->middleware(['auth']);
+
+Route::get('owner/jadwal', '\App\Http\Controllers\ScheduleController@index')->name('jadwal')->middleware(['auth']);
+Route::get('owner/add-schedule', '\App\Http\Controllers\ScheduleController@create')->name('add-schedule')->middleware(['auth']);
+Route::post('owner/add-schedule', '\App\Http\Controllers\ScheduleController@store')->name('store-schedule')->middleware(['auth']);
+Route::get('owner/detail-attendances/users/{id}/edit', '\App\Http\Controllers\ScheduleController@detail_edit')->name('edit-schedule')->middleware(['auth']);
+Route::post('owner/detail-attendances/users/{id}/edit', '\App\Http\Controllers\ScheduleController@detail_update')->name('update-schedule')->middleware(['auth']);
+Route::get('owner/detail-attendances/users/{id}/delete', '\App\Http\Controllers\ScheduleController@detail_delete')->name('delete-schedule')->middleware(['auth']);
+
+Route::get('petani/jadwal', '\App\Http\Controllers\AttendanceController@index')->name('index-attendance')->middleware(['auth']);
+Route::get('petani/jadwal/{id}', '\App\Http\Controllers\AttendanceController@create')->name('add-attendance')->middleware(['auth']);
+Route::post('petani/jadwal/{id}', '\App\Http\Controllers\AttendanceController@store')->name('store-attendance')->middleware(['auth']);
+Route::get('owner/detail-attendances/users/{id}', '\App\Http\Controllers\AttendanceController@detail')->name('detail-attendances')->middleware(['auth']);
+Route::get('owner/history-user-attendances/users', '\App\Http\Controllers\AttendanceController@user_history')->name('riwayat-laporan-petani')->middleware(['auth']);
+
+Route::get('petani/riwayat', '\App\Http\Controllers\AttendanceController@history')->name('history-attendance')->middleware(['auth']);
+
 Route::get('owner/penjualan', 'App\Http\Controllers\SellingController@index')->name('penjualan')->middleware(['auth']);
 Route::get('owner/add-penjualan', 'App\Http\Controllers\SellingController@create')->name('add-penjualan')->middleware(['auth']);
 Route::post('owner/add-penjualan', 'App\Http\Controllers\SellingController@store')->middleware(['auth']);
