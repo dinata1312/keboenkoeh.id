@@ -59,8 +59,6 @@ class RegisteredUserController extends Controller
             'id' => $request->id,
             'role' => $request->role_id,
         ]);
-
-        dd(Session::all(), $userData);
         
         return redirect(RouteServiceProvider::HOME);
     }
