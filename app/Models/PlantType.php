@@ -34,8 +34,12 @@ class PlantType extends Model
     //     return $this->hasMany(gardenOwner::class, 'garden_id', 'id');
     // }
 
-    public function PlantType(){ // Calling data for garden owner
+    public function gardenPlant(){ // Calling data for garden owner
         return $this->hasMany(GardenPlant::class, 'plant_id', 'id');
+    }
+
+    public function productSales(){ // Calling data for garden owner
+        return $this->hasMany(ProductSales::class, 'plant_id', 'id');
     }
 
 }

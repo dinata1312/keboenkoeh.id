@@ -104,17 +104,25 @@
                 <i class="fas fa-money-check mr-3"></i>
                 Keuangan
             </a>
-            {{-- <a href="{{ route('trivia') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('penjualan') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-money-check mr-3"></i>
+                Penjualan
+            </a>
+            <a href="{{ route('informasi') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-tie mr-3"></i>
                 Trivia
-            </a> --}}
+            </a>
+            <a href="{{ route('prediksi') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-world mr-3"></i>
+                Prediksi
+            </a>
             <a href="{{ route('mitra') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-tie mr-3"></i>
                 Mitra
             </a>
-            <a href="{{ route('petani') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('akun') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
-                Petani
+                Akun
             </a>
             <a href="{{ url('jadwal') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
@@ -135,9 +143,13 @@
                 <i class="fas fa-user-tie mr-3"></i>
                 Mitra
             </a>
-            <a href="{{ route('petani') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('penjualan') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-dollar mr-3"></i>
+                Penjualan
+            </a>
+            <a href="{{ route('akun') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
-                Petani
+                Akun
             </a>
             <a href="{{ route('jadwal') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
@@ -152,7 +164,7 @@
             @if(auth()->user()->role_id == 3)
             <a href="{{ route('index-attendance') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
-                Jadwal Saya
+                Penjadwalan
             </a>
             <a href="{{ route('history-attendance') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-history mr-3"></i>

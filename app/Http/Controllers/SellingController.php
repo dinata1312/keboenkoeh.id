@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\GardenPlant;
+use App\Models\Partner;
+use App\Models\ProductSales;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -18,7 +22,7 @@ class SellingController extends Controller
     public function index()
     {
         //
-        $sells = GardenPlant::orderByDesc('updated_at')->get();
+        $sells = ProductSales::orderByDesc('updated_at')->get();
 
         return view('owner.index-penjualan')->with('datas', $sells);
     }
@@ -31,7 +35,9 @@ class SellingController extends Controller
     public function create()
     {
         //
-        return view('owner.add-penjualan');
+        $partner = Partner::all();
+        
+        return view('owner.add-penjualan')->with(['partners' => $partner ]);
     }
 
     /**
@@ -46,14 +52,15 @@ class SellingController extends Controller
         $garden_id  = $request->garden_id;
         $plant_id   = $request->plantType;
         $amount     = $request->amount;
-        $started    = DB::raw('CURRENT_TIMESTAMP');
+        $price      = $request->price;
+        $partner_id = $request->partner;
+        // $created    = DB::raw('CURRENT_TIMESTAMP');
 
-        $insertData = GardenPlant::create([
+        $insertData = ProductSales::create([
             'plant_id'  => $plant_id,
             'amount'    => $amount,
-            'price'     => null,
-            'started'   => $started,
-            'harvest'   => null,
+            'price'     => $price,
+            'partner_id'=> $partner_id,
         ]);
         
         if ($insertData){
@@ -63,7 +70,7 @@ class SellingController extends Controller
             Session::put('alert', 'failure');
             Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
         }
-        return redirect('penjualan')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('penjualan');
     }
 
     /**

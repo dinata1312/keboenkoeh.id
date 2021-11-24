@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class FarmerController extends Controller
 {
@@ -25,15 +26,22 @@ class FarmerController extends Controller
         $role          = $request->role;
         $name          = $request->name;
         $email         = $request->email;
-        $password         = $request->password;
+        $password      = $request->password;
 
-        User::create([
+        $insertData = User::create([
                     'role_id'       => $role,
                     'name'          => $name,
                     'email'         => $email,
                     'password'      => bcrypt($password),
                 ]);
 
-        return redirect()->route('petani')->with( ['data' => $data]);
+        if ($insertData){
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
+        }
+        return redirect()->route('akun')->with( ['data' => $data]);
     }
 }

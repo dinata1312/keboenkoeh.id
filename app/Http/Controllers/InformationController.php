@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Information;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class InformationController extends Controller
 {
@@ -28,6 +29,7 @@ class InformationController extends Controller
     public function create()
     {
         //
+        return view('admin.add-trivia');
     }
 
     /**
@@ -39,6 +41,31 @@ class InformationController extends Controller
     public function store(Request $request)
     {
         //
+        $title       = $request->title;
+        $description = $request->title;
+        $image       = $request->image;
+        $status      = $request->status;
+        
+        $imageName = 'images/'.time().'.'.$image->extension();
+
+        $insertData = Information::create([
+            'title'         => $title,
+            'content'       => $description,
+            'status'    => $status,
+            'image'         => $imageName,
+            'user_id'       => Session::get('id'),
+        ]);
+        
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf! Data gagal diperbarui');
+        }
+        
+        return redirect('informasi');
     }
 
     /**
@@ -50,6 +77,9 @@ class InformationController extends Controller
     public function show($id)
     {
         //
+        $data = Information::where('id', $id)->first();
+        
+        return view('admin.detail-informasi');
     }
 
     /**
@@ -61,6 +91,9 @@ class InformationController extends Controller
     public function edit($id)
     {
         //
+        $data = Information::where('id', $id)->first();
+        
+        return view('admin.edit-trivia')->with('data', $data);
     }
 
     /**
@@ -73,6 +106,33 @@ class InformationController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $title       = $request->title;
+        $description = $request->title;
+        $image       = $request->image;
+        $status      = $request->status;
+        
+        $imageName = 'images/'.time().'.'.$image->extension();
+
+        $insertData = Information::where('id', $id)
+                      ->update([
+                        'title'         => $title,
+                        'content'       => $description,
+                        'status'        => $status,
+                        'image'         => $imageName,
+                        'user_id'       => Session::get('id'),
+                      ]);
+
+        
+        if ($insertData){
+            $image->move(public_path('images'), $imageName);
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
+        }else{
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf! Data gagal diperbarui');
+        }
+        
+        return redirect('informasi');
     }
 
     /**

@@ -35,7 +35,10 @@
                             </td>
                             <td class="py-4 px-6 border-b border-grey-light">Rp{{ number_format($data->price) }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">
+                                
+                            @if(auth()->user()->role_id == 2)
                                 <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="{{ url('detail-keuangan/'.$data->id) }}">Detail</a>
+                            @endif
                                 <a class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded" href="{{ url('edit-keuangan/'. $data->id) }}">Edit</a>
                             </td>
                         </tr>

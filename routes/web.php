@@ -38,7 +38,7 @@ Route::post('edit-keuangan/{id}', '\App\Http\Controllers\MoneyLiquidityControlle
 Route::get('add-keuangan', '\App\Http\Controllers\MoneyLiquidityController@create')->name('add-keuangan')->middleware(['auth']);
 Route::post('add-keuangan', '\App\Http\Controllers\MoneyLiquidityController@store')->name('store-keuangan')->middleware(['auth']);
 
-Route::get('petani', '\App\Http\Controllers\FarmerController@index')->name('petani')->middleware(['auth']);
+Route::get('petani', '\App\Http\Controllers\FarmerController@index')->name('akun')->middleware(['auth']);
 Route::get('add-farmer', '\App\Http\Controllers\FarmerController@create')->name('add-farmer')->middleware(['auth']);
 Route::post('add-farmer', '\App\Http\Controllers\FarmerController@store')->name('store-farmer')->middleware(['auth']);
 
@@ -69,6 +69,8 @@ Route::get('harvest-penjualan/{id}', 'App\Http\Controllers\SellingController@har
 Route::get('informasi', 'App\Http\Controllers\InformationController@index')->name('informasi')->middleware(['auth']);
 Route::get('add-informasi', 'App\Http\Controllers\InformationController@create')->name('add-informasi')->middleware(['auth']);
 Route::post('add-informasi', 'App\Http\Controllers\InformationController@store')->middleware(['auth']);
-Route::get('detail-informasi', 'App\Http\Controllers\InformationController@show')->name('detail-informasi')->middleware(['auth']);
-Route::post('detail-informasi', 'App\Http\Controllers\InformationController@panen')->name('panen-informasi')->middleware(['auth']);
+Route::get('edit-informasi/{id}', 'App\Http\Controllers\InformationController@edit')->name('edit-informasi')->middleware(['auth']);
+Route::post('edit-informasi', 'App\Http\Controllers\InformationController@update')->middleware(['auth']);
+
+Route::get('prediksi', 'App\Http\Controllers\PredictionController@index')->name('prediksi')->middleware(['auth']);
 require __DIR__.'/auth.php';

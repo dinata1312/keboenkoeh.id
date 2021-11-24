@@ -6,7 +6,7 @@
             </svg>
             <!-- <i class="fas fa-list mr-3"></i> --> Trivia
             &nbsp;
-            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-green-500 rounded" href="{{ url('add-penjualan') }}">Tambah konten</a>
+            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-green-500 rounded" href="{{ route('add-informasi') }}">Tambah data</a>
         </p>
         <div class="bg-white overflow-auto">
             <table class="text-left w-full border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
@@ -23,28 +23,19 @@
                     @php
                         $no = 1;
                     @endphp
-                    {{-- @foreach ($datas as $data)
+                    @foreach ($datas as $data)
                         <tr class="hover:bg-grey-lighter">
                             <td class="py-4 px-6 border-b border-grey-light">{{ $no++ }}</td>
-                            <td class="py-4 px-6 border-b border-grey-light">
-                                @php
-                                    $plantName = \App\Models\PlantType::where('id', $data->plant_id)->first();
-                                    echo $plantName->name;
-                                @endphp
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $data->title }}
                             </td>
-                            <td class="py-4 px-6 border-b border-grey-light">{{ number_format($data->amount) }} Kg</td>
+                            <td class="py-4 px-6 border-b border-grey-light">{{ \Illuminate\Support\Str::limit($data->content, 50, $end='...') }}</td>
+                            <td class="py-4 px-6 border-b border-grey-light">{{ $data->updated_at }}</td>
                             <td class="py-4 px-6 border-b border-grey-light">
-                                @if ($data->price == 0)
-                                    [Belum panen]
-                                @else
-                                    Rp{{ number_format($data->price) }}</td>
-                                @endif
-                            <td class="py-4 px-6 border-b border-grey-light">
-                                <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="{{ url('detail-penjualan/'. $data->id ) }}">Detail</a>
-                                <a class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded" href="{{ url('edit-penjualan/'. $data->id ) }}">edit</a>
+                                {{-- <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="{{ url('detail-informasi/'. $data->id ) }}">Detail</a> --}}
+                                <a class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded" href="{{ url('edit-informasi/'. $data->id ) }}">edit</a>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
