@@ -63,7 +63,7 @@ class SellingController extends Controller
             Session::put('alert', 'failure');
             Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
         }
-        return redirect('owner/penjualan')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('penjualan')->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
@@ -122,7 +122,7 @@ class SellingController extends Controller
             Session::put('alert', 'failure');
             Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
         }
-        return redirect('owner/penjualan')->with('success', 'Data berhasil diperbarui !');
+        return redirect('penjualan')->with('success', 'Data berhasil diperbarui !');
     }
 
     /**

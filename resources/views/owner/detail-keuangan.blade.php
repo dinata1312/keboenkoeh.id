@@ -2,7 +2,7 @@
     <form class="p-10 bg-white rounded shadow-xl">
         <p class="text-3xl text-gray-800 font-medium pb-4">
             Detail Transaksi
-            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-blue-900 rounded" href="/owner/edit-keuangan/{{ $data->id }}">Edit</a>
+            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-blue-900 rounded" href="edit-keuangan/{{ $data->id }}">Edit</a>
         </p>
             <div class="">
                 <label class="block text-md text-gray-600" for="title">Judul</label>

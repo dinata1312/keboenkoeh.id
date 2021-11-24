@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert(
             array(
                 'name'      => 'Atta Gledek',
-                'email'     => 'owner@gmail.com',
+                'email'     => 'owner@mail.com',
                 'role_id'   => 1,
                 'password'  => Hash::make('12345678'),
                 'created_at'=> DB::raw('CURRENT_TIMESTAMP'),
@@ -40,7 +40,7 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert(
             array(
                 'name'      => 'Michael Handoko',
-                'email'     => 'handokoiscute@gmail.com',
+                'email'     => 'admin@mail.com',
                 'role_id'   => 2,
                 'password'  => Hash::make('12345678'),
                 'created_at'=> DB::raw('CURRENT_TIMESTAMP'),

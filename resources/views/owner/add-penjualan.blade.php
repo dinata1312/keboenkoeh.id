@@ -2,7 +2,7 @@
     <form class="p-10 bg-white rounded shadow-xl" action="{{route('add-penjualan') }}" method="post">
         @csrf
         <p class="text-3xl text-gray-800 font-medium pb-4">
-            Edit Hasil Penjualan Tanaman
+            Tambah Data Keuangan
         </p>
         <div class="mt-2">
             <label class="block text-md text-gray-600" for="partner">Jenis Tanaman</label>

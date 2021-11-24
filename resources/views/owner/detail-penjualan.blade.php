@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form class="p-10 bg-white rounded shadow-xl" action="{{ url('owner/store-penjualan') }}" method="post">
+    <form class="p-10 bg-white rounded shadow-xl" action="{{ url('store-penjualan') }}" method="post">
         @csrf
         <p class="text-3xl text-gray-800 font-medium pb-4">
             Detail Hasil Penjualan Tanaman

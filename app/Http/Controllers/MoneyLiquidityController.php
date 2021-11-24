@@ -91,7 +91,7 @@ class MoneyLiquidityController extends Controller
             Session::put('alert-message', 'Mohon maaf! Data gagal diperbarui');
         }
 
-        return redirect('owner/keuangan')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('keuangan')->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**
@@ -142,11 +142,13 @@ class MoneyLiquidityController extends Controller
         
         if ($insertData){
             $image->move(public_path('images'), $imageName);
-            Session::put('alert', 'add-success');
+            Session::put('alert', 'success');
+            Session::put('alert-message', 'Data berhasil diperbarui');
         }else{
-            Session::put('alert', 'add-failure');
+            Session::put('alert', 'failure');
+            Session::put('alert-message', 'Mohon maaf! Data gagal diperbarui');
         }
         
-        return redirect('owner/keuangan')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('keuangan')->with('alert-message', 'Data berhasil ditambahkan !');
     }
 }

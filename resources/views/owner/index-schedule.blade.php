@@ -6,7 +6,7 @@
             </svg><!-- <i class="fas fa-list mr-3"></i> --> Penjadwalan
             &nbsp;
             @if(auth()->user()->role_id == 1)
-            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-green-500 rounded" href="/owner/add-schedule">Tambah data</a>
+            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-green-500 rounded" href="add-schedule">Tambah data</a>
             @endif
         </p>
         <div class="bg-white overflow-auto">
@@ -36,10 +36,10 @@
                         <td class="py-4 px-6 border-b border-grey-light">{{ $dt->start }}</td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ $dt->finish }}</td>
                         <td class="py-4 px-6 border-b border-grey-light">
-                            <a class="px-3 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="/owner/detail-attendances/users/{{$dt->user_id}}">Detail</a>
+                            <a class="px-3 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="detail-attendances/users/{{$dt->user_id}}">Detail</a>
                             @if(Auth::user()->role_id == 1)
-                            <a class="px-3 py-1 text-white font-light tracking-wider bg-yellow-900 rounded" href="/owner/detail-attendances/users/{{$dt->id}}/edit">Edit</a>
-                            <a class="px-3 py-1 text-white font-light tracking-wider bg-red-900 rounded" href="/owner/detail-attendances/users/{{$dt->id}}/delete">Delete</a>
+                            <a class="px-3 py-1 text-white font-light tracking-wider bg-yellow-900 rounded" href="detail-attendances/users/{{$dt->id}}/edit">Edit</a>
+                            <a class="px-3 py-1 text-white font-light tracking-wider bg-red-900 rounded" href="detail-attendances/users/{{$dt->id}}/delete">Delete</a>
                             @endif
                         </td>
                     </tr>

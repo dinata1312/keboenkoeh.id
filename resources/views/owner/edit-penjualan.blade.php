@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form class="p-10 bg-white rounded shadow-xl" action="{{ url('owner/edit-penjualan/'. $data->id) }}" method="post">
+    <form class="p-10 bg-white rounded shadow-xl" action="{{ url('edit-penjualan/'. $data->id) }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ encrypt($data->id)}}">
         <p class="text-3xl text-gray-800 font-medium pb-4">

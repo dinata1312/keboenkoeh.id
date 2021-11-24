@@ -2,7 +2,7 @@
     <form class="p-10 bg-white rounded shadow-xl">
         <p class="text-3xl text-gray-800 font-medium pb-4">
             Detail Mitra #{{ $data->id }}
-            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-blue-900 rounded" href="{{ url('owner/edit-partner/'. $data->id) }}">Edit</a>
+            <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-blue-900 rounded" href="{{ url('edit-partner/'. $data->id) }}">Edit</a>
         </p>
             <div class="">
                 <label class="block text-md text-gray-600" for="name">Mitra</label>

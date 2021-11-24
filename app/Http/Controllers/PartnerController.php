@@ -67,7 +67,7 @@ class PartnerController extends Controller
             Session::put('alert', 'failure');
             Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
         }
-        return redirect('owner/partner')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('partner')->with('success', 'Data berhasil ditambahkan !');
         
     }
 
@@ -137,7 +137,7 @@ class PartnerController extends Controller
             Session::put('alert-message', 'Mohon maaf. Data gagal diperbarui');
         }
 
-        return redirect('owner/partner')->with('success', 'Data berhasil ditambahkan !');
+        return redirect('partner')->with('success', 'Data berhasil ditambahkan !');
     }
 
     /**

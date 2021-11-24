@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Information;
 use Illuminate\Http\Request;
 
-class TriviaController extends Controller
+class InformationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,6 @@ class TriviaController extends Controller
     public function create()
     {
         //
-        return view('admin.add-trivia');
     }
 
     /**
@@ -40,7 +39,6 @@ class TriviaController extends Controller
     public function store(Request $request)
     {
         //
-        
     }
 
     /**
