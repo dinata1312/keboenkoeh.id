@@ -460,21 +460,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="heading-title text-center">
-                            <h3>Our Happy <strong class="text-color">Clients</strong></h3>
+                            <h3><strong class="text-color">Informasi</strong></h3>
                         </div>
                         <ul class="grid-lg-5 grid-md-2 grid-sm-1 client-carousel">
-                            <li><img src="{{ asset('img/client-logo/logo-1.png') }}" alt="client logo 1" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-2.png') }}" alt="client logo 2" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-3.png') }}" alt="client logo 3" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-4.png') }}" alt="client logo 4" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-5.png') }}" alt="client logo 5" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-6.png') }}" alt="client logo 6" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-7.png') }}" alt="client logo 7" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-8.png') }}" alt="client logo 8" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-9.png') }}" alt="client logo 9" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-10.png') }}" alt="client logo 10" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-11.png') }}" alt="client logo 11" /></li>
-                            <li><img src="{{ asset('img/client-logo/logo-12.png') }}" alt="client logo 12" /></li>
+                            @php
+                                $trivias = \App\Models\Information::orderByDesc('updated_at')->limit(6)->get();
+                            @endphp
+                            @foreach ($trivias as $trivia)
+                                <li>
+                                @if (strpos($trivia->image,'http') == true)
+                                    <img src="{{ $trivia->image }}" alt="{{ $trivia->title }}" />
+                                @else
+                                    <img src="{{ asset($trivia->image) }}" alt="{{ $trivia->title }}" />
+                                @endif
+                                    <p style="text-align: center">{{ \Illuminate\Support\Str::limit($trivia->title, 10, $end='...') }}</p>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
