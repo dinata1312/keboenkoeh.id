@@ -39,7 +39,7 @@ class ScheduleController extends Controller
                     'finish'            => $finish,
                 ]);
 
-        return redirect()->route('jadwal')->with( ['data' => $data]);
+        return redirect('jadwal')->with( ['data' => $data]);
     }
 
     public function detail_edit($id)
@@ -73,6 +73,6 @@ class ScheduleController extends Controller
         $data = Attendance::join('schedules','attendances.schedule_id','=','schedules.id')->join('users','schedules.user_id','=','users.id')->select('attendances.user_id','attendances.schedule_id','attendances.report','attendances.image','attendances.created_at','schedules.user_id','users.name','schedules.day','schedules.start','schedules.finish','schedules.land')->get();
         $schedulesdelete = Schedule::where('id', $id);
         $schedulesdelete->delete();
-        return redirect()->route('jadwal')->with( ['data' => $data]);
+        return redirect('jadwal')->with( ['data' => $data]);
     }
 }

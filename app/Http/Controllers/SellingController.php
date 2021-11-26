@@ -82,7 +82,7 @@ class SellingController extends Controller
     public function show($id)
     {
         //
-        $SellingData = GardenPlant::where('id', $id)->first();
+        $SellingData = ProductSales::where('id', $id)->first();
         return view('owner.detail-penjualan')->with('data', $SellingData);
     }
 

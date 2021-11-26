@@ -6,7 +6,10 @@
             </svg>
             <!-- <i class="fas fa-list mr-3"></i> --> Penjualan Hasil Panen
             &nbsp;
+            
+            @if(auth()->user()->role_id == 1)
             <a class="px-1 py-1 text-white text-sm font-light tracking-wider bg-green-500 rounded" href="{{ url('add-penjualan') }}">Tambah data</a>
+            @endif
         </p>
         <div class="bg-white overflow-auto">
             <table class="text-left w-full border-collapse"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->

@@ -81,7 +81,7 @@
     @endphp
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
-            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Keboenkoeh</a>
+            <a href="{{ url('/dashboard') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Keboenkoeh</a>
         </div>
         <div class="p-6 mt--6">
             <div class="container-fluid">
@@ -111,10 +111,6 @@
             <a href="{{ route('informasi') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-tie mr-3"></i>
                 Trivia
-            </a>
-            <a href="{{ route('prediksi') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-world mr-3"></i>
-                Prediksi
             </a>
             <a href="{{ route('mitra') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-tie mr-3"></i>
@@ -147,11 +143,15 @@
                 <i class="fas fa-dollar mr-3"></i>
                 Penjualan
             </a>
+            <a href="{{ route('prediksi') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-world mr-3"></i>
+                Prediksi
+            </a>
             <a href="{{ route('akun') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
                 Akun
             </a>
-            <a href="{{ route('jadwal') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ url('jadwal') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
                 Penjadwalan
             </a>
@@ -166,10 +166,10 @@
                 <i class="fas fa-calendar mr-3"></i>
                 Penjadwalan
             </a>
-            <a href="{{ route('history-attendance') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            {{-- <a href="{{ route('history-attendance') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-history mr-3"></i>
                 Riwayat Laporan
-            </a>
+            </a> --}}
             @endif
         </nav>
         {{-- <a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
@@ -177,7 +177,6 @@
             Upgrade to Pro!
         </a> --}}
     </aside>
-
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
 

@@ -47,6 +47,16 @@ class CreateUsersTable extends Migration
                 'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
             ),
         );
+        DB::table('users')->insert(
+            array(
+                'name'      => 'Anji',
+                'email'     => 'farmer@mail.com',
+                'role_id'   => 3,
+                'password'  => Hash::make('12345678'),
+                'created_at'=> DB::raw('CURRENT_TIMESTAMP'),
+                'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
+            ),
+        );
     }
 
     /**

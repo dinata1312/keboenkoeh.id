@@ -49,7 +49,7 @@ Route::get('detail-attendances/users/{id}/edit', '\App\Http\Controllers\Schedule
 Route::post('detail-attendances/users/{id}/edit', '\App\Http\Controllers\ScheduleController@detail_update')->name('update-schedule')->middleware(['auth']);
 Route::get('detail-attendances/users/{id}/delete', '\App\Http\Controllers\ScheduleController@detail_delete')->name('delete-schedule')->middleware(['auth']);
 
-Route::get('jadwal', 'App\Http\Controllers\AttendanceController@index')->name('jadwal')->middleware(['auth']);
+Route::get('jadwal', 'App\Http\Controllers\AttendanceController@index')->name('index-attendance')->middleware(['auth']);
 Route::get('jadwal/{id}', '\App\Http\Controllers\AttendanceController@create')->name('add-attendance')->middleware(['auth']);
 Route::post('jadwal/{id}', '\App\Http\Controllers\AttendanceController@store')->name('store-attendance')->middleware(['auth']);
 Route::get('detail-attendances/users/{id}', '\App\Http\Controllers\AttendanceController@detail')->name('detail-attendances')->middleware(['auth']);
