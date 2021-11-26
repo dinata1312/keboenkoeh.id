@@ -11,8 +11,10 @@ class ScheduleController extends Controller
 {
     public function index()
     {
-        $data = Schedule::join('users','schedules.user_id','=','users.id')->select('schedules.id','users.name','schedules.land','schedules.day','schedules.start','schedules.finish','schedules.user_id')->get();
-        return view ('owner.index-schedule', compact('data'));
+        // $data = Schedule::join('users','schedules.user_id','=','users.id')->select('schedules.id','users.name','schedules.land','schedules.day','schedules.start','schedules.finish','schedules.user_id')->get();
+        $data = Schedule::all();
+        dd($data);
+        // return view ('owner.index-schedule')->with('data', $data);
     }
 
     public function create()

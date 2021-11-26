@@ -12,8 +12,10 @@ class AttendanceController extends Controller
 {
     public function index()
     {
-        $data = Schedule::join('users','schedules.user_id','=','users.id')->select('users.name','schedules.day','schedules.start','schedules.finish','schedules.land','schedules.id')->where('schedules.user_id', Auth::user()->id)->get();
-        return view ('index-schedule', compact('data'));
+        // $data = Schedule::join('users','schedules.user_id','=','users.id')->select('users.name','schedules.day','schedules.start','schedules.finish','schedules.land','schedules.id')->where('schedules.user_id', Auth::user()->id)->get();
+        
+        $data = Schedule::orderByDesc('created_at')->get();
+        return view ('index-schedule')->with('data', $data);
     }
 
     public function create($id)

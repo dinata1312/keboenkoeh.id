@@ -68,8 +68,8 @@ class PredictionController extends Controller
             }
             $no++;
         }
-        dd($averages);
-        return view('owner.index-prediksi');
+
+        return view('owner.index-prediksi')->with('averages', $averages);
     }
 
     /**
