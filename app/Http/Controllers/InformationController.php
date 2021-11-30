@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Session;
 
 class InformationController extends Controller
 {
+    public function preview($id)
+    {
+        //
+        $data = Information::where('id', $id)->first();
+        return view('content')->with('data', $data);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -107,24 +114,33 @@ class InformationController extends Controller
     {
         //
         $title       = $request->title;
-        $description = $request->title;
+        $description = $request->content;
         $image       = $request->image;
         $status      = $request->status;
-        
-        $imageName = 'images/'.time().'.'.$image->extension();
 
-        $insertData = Information::where('id', $id)
-                      ->update([
-                        'title'         => $title,
-                        'content'       => $description,
-                        'status'        => $status,
-                        'image'         => $imageName,
-                        'user_id'       => Session::get('id'),
-                      ]);
+        if(isset($image)){
+            $imageName = 'images/'.time().'.'.$image->extension();
+            $image->move(public_path('images'), $imageName);
 
+            $insertData = Information::where('id', $id)
+                        ->update([
+                            'title'         => $title,
+                            'content'       => $description,
+                            'status'        => $status,
+                            'image'         => $imageName,
+                            'user_id'       => Session::get('id'),
+                        ]);
+        }else{
+            $insertData = Information::where('id', $id)
+                        ->update([
+                            'title'         => $title,
+                            'content'       => $description,
+                            'status'        => $status,
+                            'user_id'       => Session::get('id'),
+                        ]);
+        }
         
         if ($insertData){
-            $image->move(public_path('images'), $imageName);
             Session::put('alert', 'success');
             Session::put('alert-message', 'Data berhasil diperbarui');
         }else{

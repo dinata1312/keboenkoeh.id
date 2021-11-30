@@ -72,5 +72,7 @@ Route::post('add-informasi', 'App\Http\Controllers\InformationController@store')
 Route::get('edit-informasi/{id}', 'App\Http\Controllers\InformationController@edit')->name('edit-informasi')->middleware(['auth']);
 Route::post('edit-informasi/{id}', 'App\Http\Controllers\InformationController@update')->middleware(['auth']);
 
+Route::get('content/{id}', 'App\Http\Controllers\InformationController@preview')->middleware(['auth']);
+
 Route::get('prediksi', 'App\Http\Controllers\PredictionController@index')->name('prediksi')->middleware(['auth']);
 require __DIR__.'/auth.php';

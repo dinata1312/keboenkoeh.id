@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Selling;
 
 class SellingController extends Controller
 {
@@ -115,10 +116,9 @@ class SellingController extends Controller
         $price      = $request->price;
         $harvest    = $request->harvest;
 
-        $insertData  = GardenPlant::where('id', $id)->update([
+        $insertData  = ProductSales::where('id', $id)->update([
                                         'amount'    => $amount,
                                         'price'     => $price,
-                                        'harvest'   => $harvest,
                                         'updated_at'=> DB::raw('CURRENT_TIMESTAMP'),
                                     ]);
         
