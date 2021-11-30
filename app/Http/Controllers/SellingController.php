@@ -95,7 +95,7 @@ class SellingController extends Controller
     public function edit($id)
     {
         //
-        $SellingData = GardenPlant::where('id', $id)->first();
+        $SellingData = ProductSales::where('id', $id)->first();
         return view('owner.edit-penjualan')->with('data', $SellingData);
     }
 

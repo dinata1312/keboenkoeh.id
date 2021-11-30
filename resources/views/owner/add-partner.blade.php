@@ -1,5 +1,6 @@
 <x-app-layout>
     <form class="p-10 bg-white rounded shadow-xl"  action="{{route('add-partner') }}" method="post" enctype="multipart/form-data">
+        @csrf
         <p class="text-3xl text-gray-800 font-medium pb-4">
             Tambah Mitra
         </p>

@@ -1,5 +1,6 @@
 <x-app-layout>
     <form class="p-10 bg-white rounded shadow-xl" action="{{ url('edit-penjualan/'. $data->id) }}" method="post">
+        
         @csrf
         <input type="hidden" name="id" value="{{ encrypt($data->id)}}">
         <p class="text-3xl text-gray-800 font-medium pb-4">
@@ -30,7 +31,7 @@
             <input class="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded" name="harvest" type="date" value="{{ $data->harvest }}">
         </div>
         <div class="mt-6">
-            <button class="w-full px-4 py-1 text-white font-light tracking-wider bg-green-500 rounded" type="submit">Perbarui</button>
+            <button class="w-full px-4 py-1 text-white font-light tracking-wider bg-green-500 rounded" type="submit">Simpan</button>
         </div>
     </form>
 </x-app-layout>

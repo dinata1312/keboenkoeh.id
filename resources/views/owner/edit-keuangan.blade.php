@@ -37,9 +37,9 @@
         <div class="">
             <label class="block text-md text-gray-600" for="cus_name">Card</label>
             <input class="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Card Number MM/YY CVC" aria-label="Name">
-        </div>
-        <div class="mt-6">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">$3.00</button>
         </div> --}}
+        <div class="mt-6">
+            <button class="w-full px-4 py-1 text-white font-light tracking-wider bg-green-500 rounded" type="submit">Simpan</button>
+        </div>
     </form>
 </x-app-layout>

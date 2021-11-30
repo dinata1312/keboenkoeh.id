@@ -44,7 +44,9 @@
                                 @endif
                             <td class="py-4 px-6 border-b border-grey-light">
                                 <a class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" href="{{ url('detail-penjualan/'. $data->id ) }}">Detail</a>
-                                <a class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded" href="{{ url('edit-penjualan/'. $data->id ) }}">edit</a>
+                                @if(auth()->user()->role_id == 1)
+                                    <a class="px-4 py-1 text-white font-light tracking-wider bg-green-900 rounded" href="{{ url('edit-penjualan/'. $data->id ) }}">edit</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
